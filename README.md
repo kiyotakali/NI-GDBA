@@ -2,7 +2,7 @@
 
 
 ## Dataset
-- **Graph level:** `AIDS`,`NCI1`,`PROTEINS_full`,`DD`, `ENZYMES` ,  `COLORS-3`
+- `AIDS`,`NCI1`,`PROTEINS_full`,`DD`, `ENZYMES` ,  `COLORS-3`
 
 
 ## GNN Model
@@ -12,8 +12,41 @@ We consider the most widely studied GNN models:
 - **GraphSAGE**.
 
 
+## Attack results
+The baseline attack can be realized by this code.
+```
+python run_baseline1.py --dataset NCI1 \
+                         --config ./Graph_level_Models/configs/TUS/TUs_graph_classification_GCN_NCI1_100k.json \
+                         --is_iid iid\
+                         --num_workers 10\
+                         --num_mali 3\
+                         --epoch_backdoor 0\
+                         --frac_of_avg 0.1\
+                         --trigger_type ba\
+                         --trigger_position random\
+                         --poisoning_intensity 0.1\
+                         --filename ./checkpoints/Graph \
+                         --device_id 0
+```
 
-## Graph Backdoor attacks on  Node Classification in Federated GNNs
+Our NI-GDBA can be realized by:
+```
+python run_our.py --dataset NCI1 \
+                         --config ./Graph_level_Models/configs/TUS/TUs_graph_classification_GCN_NCI1_100k.json \
+                         --is_iid iid\
+                         --num_workers 10\
+                         --num_mali 3\
+                         --epoch_backdoor 0\
+                         --frac_of_avg 0.1\
+                         --trigger_type renyi\
+                         --trigger_position cluster\
+                         --poisoning_intensity 0.1\
+                         --filename ./checkpoints/Graph \
+                         --device_id 2
+```
+
+
+## Preparation
 
 
 
