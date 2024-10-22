@@ -14,7 +14,7 @@ We consider the most widely studied GNN models:
 
 ## Attack results
 The baseline attack can be realized by this code.
-```
+```python
 python run_baseline1.py --dataset NCI1 \
                          --config ./Graph_level_Models/configs/TUS/TUs_graph_classification_GCN_NCI1_100k.json \
                          --is_iid iid\
@@ -30,7 +30,7 @@ python run_baseline1.py --dataset NCI1 \
 ```
 
 Our NI-GDBA can be realized by:
-```
+```python
 python run_our.py --dataset NCI1 \
                          --config ./Graph_level_Models/configs/TUS/TUs_graph_classification_GCN_NCI1_100k.json \
                          --is_iid iid\
